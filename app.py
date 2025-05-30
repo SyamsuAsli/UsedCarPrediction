@@ -33,7 +33,7 @@ cylinders_labels = sorted([
     6,  4,  8,  1, 12,  3,  2, 16,  5,  7,  9, 10, 14
 ])
 
-Engine_volume_labels = sorted([ 3.5,  3. ,  1.3,  2.5,  2. ,  1.8,  2.4,  3.3,  1.6,  2.2,  4.7,
+Engine_vol_labels = sorted([ 3.5,  3. ,  1.3,  2.5,  2. ,  1.8,  2.4,  3.3,  1.6,  2.2,  4.7,
         1.5,  4.4,  1.4,  3.6,  4. ,  2.3,  5.5,  3.2,  3.8,  4.6,  1.2,
         5. ,  1.7,  2.9,  0.5,  1.9,  2.7,  4.8,  5.3,  0.4,  2.8,  2.1,
         0.7,  5.4,  3.7,  1. ,  2.6,  0.8,  0.2,  5.7,  6.7,  6.2,  3.4,
@@ -133,7 +133,7 @@ st.markdown("Masukkan fitur-fitur mobil untuk memprediksi harga jual menggunakan
 # Input numerik
 Levy = st.number_input("Levy", value=0.0)
 Prod_year = st.selectbox("Tahun Produksi", prod_years)
-Engine_volume = st.number_input("Kapasitas Mesin (L)", Engine_volume_labels)
+Engine_volume = st.number_input("Kapasitas Mesin (L)", Engine_vol_labels)
 Mileage = st.number_input("Jarak Tempuh (km)", value=50000)
 Cylinders = st.number_input("Jumlah Silinder", cylinders_labels)
 Airbags = st.number_input("Jumlah Airbags", airbags_labels)
