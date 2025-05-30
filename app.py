@@ -29,6 +29,19 @@ prod_years = sorted([2010, 2011, 2006, 2014, 2016, 2013, 2007, 1999, 1997, 2018,
  2020, 1984, 1986, 1991, 1983, 1953, 1964, 1974, 1987, 1943, 1978,
  1965, 1976, 1957, 1980, 1939, 1968, 1947, 1982, 1981, 1973])
 
+cylinders_labels = sorted([
+    6,  4,  8,  1, 12,  3,  2, 16,  5,  7,  9, 10, 14
+])
+
+Engine_volume_labels = sorted([ 3.5,  3. ,  1.3,  2.5,  2. ,  1.8,  2.4,  3.3,  1.6,  2.2,  4.7,
+        1.5,  4.4,  1.4,  3.6,  4. ,  2.3,  5.5,  3.2,  3.8,  4.6,  1.2,
+        5. ,  1.7,  2.9,  0.5,  1.9,  2.7,  4.8,  5.3,  0.4,  2.8,  2.1,
+        0.7,  5.4,  3.7,  1. ,  2.6,  0.8,  0.2,  5.7,  6.7,  6.2,  3.4,
+        6.3,  4.2,  0. , 20. ,  1.1,  5.6,  6. ,  0.6,  6.8,  4.5,  7.3,
+        0.1,  4.3,  6.4,  3.9,  5.9,  0.3,  5.2,  5.8])
+
+airbags_labels =sorted([12,  8,  2,  0,  4,  6, 10,  3,  1, 16,  7,  9,  5, 11, 14, 15, 13])
+
 # Daftar model khusus HYUNDAI
 hyundai_models = ['Santa FE', 'Sonata', 'Elantra', 'H1', 'Tucson', 'Genesis',
  'Elantra sport limited', 'I30', 'Veloster', 'Sonata SPORT', 'Elantra SE',
@@ -120,10 +133,10 @@ st.markdown("Masukkan fitur-fitur mobil untuk memprediksi harga jual menggunakan
 # Input numerik
 Levy = st.number_input("Levy", value=0.0)
 Prod_year = st.selectbox("Tahun Produksi", prod_years)
-Engine_volume = st.number_input("Kapasitas Mesin (L)", value=1.5)
+Engine_volume = st.number_input("Kapasitas Mesin (L)", Engine_volume_labels)
 Mileage = st.number_input("Jarak Tempuh (km)", value=50000)
-Cylinders = st.number_input("Jumlah Silinder", value=4)
-Airbags = st.number_input("Jumlah Airbags", value=2)
+Cylinders = st.number_input("Jumlah Silinder", cylinders_labels)
+Airbags = st.number_input("Jumlah Airbags", airbags_labels)
 
 # Dropdown
 Manufacturer = st.selectbox("Manufacturer", manufacturer_labels)
