@@ -335,6 +335,15 @@ category_labels = ['Jeep', 'Hatchback', 'Sedan', 'Microbus', 'Goods wagon',
 st.title("Prediksi Harga Mobil Bekas")
 st.markdown("Masukkan fitur-fitur mobil untuk memprediksi harga jual menggunakan model XGBoost.")
 
+# Input numerik
+Levy = st.number_input("Levy", value=0.0)
+Prod_year = st.selectbox("Tahun Produksi", prod_years)
+Engine_volume = st.selectbox("Kapasitas Mesin (L)", Engine_vol_labels)
+Mileage = st.number_input("Jarak Tempuh (km)", value=50000)
+Cylinders = st.selectbox("Jumlah Silinder", cylinders_labels)
+Airbags = st.selectbox("Jumlah Airbags", airbags_labels)
+Age_of_Car = st.number_input("Umur Mobil (tahun)", value=5)
+
 # Dropdown
 Manufacturer = st.selectbox("Manufacturer", manufacturer_labels)
 Manufacturer_idx = manufacturer_labels.index(Manufacturer)
@@ -397,19 +406,8 @@ elif Manufacturer == "MITSUBISHI":
 else:
     Model = st.number_input("Model (kode numerik)", value=1)
 
-# Input numerik
-Engine_volume = st.selectbox("Kapasitas Mesin (L)", Engine_vol_labels)
-Cylinders = st.selectbox("Jumlah Silinder", cylinders_labels)
 Category = st.selectbox("Kategori ", category_labels)
-Levy = st.number_input("Levy", value=0.0)
-Prod_year = st.selectbox("Tahun Produksi", prod_years)
-Age_of_Car = st.number_input("Umur Mobil (tahun)", value=5)
-Mileage = st.number_input("Jarak Tempuh (km)", value=50000)
-Airbags = st.selectbox("Jumlah Airbags", airbags_labels)
-
-
-Color = st.selectbox("Warna Mobil", color_labels)
-Color_idx = color_labels.index(Color)
+Leather_interior = st.selectbox("Interior Kulit", ["Tidak", "Ya"])
 
 Fuel_type=st.selectbox("Tipe Bahan Bakar",fuel_type_labels)
 Fuel_type_idx=fuel_type_labels.index(Fuel_type)
@@ -420,9 +418,12 @@ Gear_box_type_idx=gear_box_labels.index(Gear_box_type)
 Drive_wheels =st.selectbox("Tipe Penggerak",drive_wheels_labels)
 Drive_wheels_idx=drive_wheels_labels.index(Drive_wheels)
 
-# Fitur lainnya
-Leather_interior = st.selectbox("Interior Kulit", ["Tidak", "Ya"])
+Color = st.selectbox("Warna Mobil", color_labels)
+Color_idx = color_labels.index(Color)
+
 is_turbo = st.selectbox("Apakah Turbo?", ["Tidak", "Ya"])
+
+# Fitur lainnya
 
 # Konversi boolean ke numerik
 Leather_interior = 1 if Leather_interior == "Ya" else 0
