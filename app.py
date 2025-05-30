@@ -430,9 +430,9 @@ is_turbo = 1 if is_turbo == "Ya" else 0
 
 # Prediksi
 if st.button("Prediksi Harga"):
-    data = np.array([[Manufacturer_idx, Model,Category,Engine_volume, Color_idx, Cylinders,Airbags, Gear_box_type_idx,Drive_wheels,is_turbo,
-                       Fuel_type_idx,Mileage, Levy,
-                        Prod_year, Age_of_Car,
-                        Leather_interior]])
+    data = np.array([[Levy, Prod_year, Engine_volume, Mileage, Cylinders,
+                      Airbags, Age_of_Car, Manufacturer_idx, Model, Category,
+                      Leather_interior, Fuel_type, Gear_box_type, Drive_wheels,
+                      Color, is_turbo]])
     prediksi = model.predict(data)[0]
     st.success(f"Perkiraan Harga Mobil Bekas: {prediksi:,.2f}")
