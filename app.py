@@ -400,7 +400,7 @@ else:
 # Input numerik
 Engine_volume = st.selectbox("Kapasitas Mesin (L)", Engine_vol_labels)
 Cylinders = st.selectbox("Jumlah Silinder", cylinders_labels)
-Category = st.number_input("Kategori (kode numerik)", category_labels)
+Category = st.selectbox("Kategori ", category_labels)
 Levy = st.number_input("Levy", value=0.0)
 Prod_year = st.selectbox("Tahun Produksi", prod_years)
 Age_of_Car = st.number_input("Umur Mobil (tahun)", value=5)
