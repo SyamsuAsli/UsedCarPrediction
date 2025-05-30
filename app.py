@@ -133,10 +133,10 @@ st.markdown("Masukkan fitur-fitur mobil untuk memprediksi harga jual menggunakan
 # Input numerik
 Levy = st.number_input("Levy", value=0.0)
 Prod_year = st.selectbox("Tahun Produksi", prod_years)
-Engine_volume = st.number_input("Kapasitas Mesin (L)", Engine_vol_labels)
+Engine_volume = st.selectbox("Kapasitas Mesin (L)", Engine_vol_labels)
 Mileage = st.number_input("Jarak Tempuh (km)", value=50000)
-Cylinders = st.number_input("Jumlah Silinder", cylinders_labels)
-Airbags = st.number_input("Jumlah Airbags", airbags_labels)
+Cylinders = st.selectbox("Jumlah Silinder", cylinders_labels)
+Airbags = st.selectbox("Jumlah Airbags", airbags_labels)
 
 # Dropdown
 Manufacturer = st.selectbox("Manufacturer", manufacturer_labels)
