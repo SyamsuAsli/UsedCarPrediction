@@ -326,7 +326,7 @@ mitsubishi_models = ['Airtrek', 'Delica', 'Colt Lancer', 'Outlander', 'I', 'Colt
 
 drive_wheels_labels=['4x4', 'Front', 'Rear']
 
-Category_labels = ['Jeep', 'Hatchback', 'Sedan', 'Microbus', 'Goods wagon',
+category_labels = ['Jeep', 'Hatchback', 'Sedan', 'Microbus', 'Goods wagon',
        'Universal', 'Coupe', 'Minivan', 'Cabriolet', 'Pickup',
        'Limousine']
 
@@ -400,7 +400,7 @@ else:
 # Input numerik
 Engine_volume = st.selectbox("Kapasitas Mesin (L)", Engine_vol_labels)
 Cylinders = st.selectbox("Jumlah Silinder", cylinders_labels)
-Category = st.number_input("Kategori (kode numerik)", value=1)
+Category = st.number_input("Kategori (kode numerik)", category_labels)
 Levy = st.number_input("Levy", value=0.0)
 Prod_year = st.selectbox("Tahun Produksi", prod_years)
 Age_of_Car = st.number_input("Umur Mobil (tahun)", value=5)
@@ -430,9 +430,9 @@ is_turbo = 1 if is_turbo == "Ya" else 0
 
 # Prediksi
 if st.button("Prediksi Harga"):
-    data = np.array([[Manufacturer_idx, Model, Levy, Prod_year, Engine_volume, Mileage, Cylinders,
-                      Airbags, Fuel_type_idx,Gear_box_type_idx,
-                        Drive_wheels, Age_of_Car, Category
-                      Color_idx, is_turbo, Leather_interior]])
+    data = np.array([[Manufacturer_idx, Model,Category,Engine_volume, Color_idx, Cylinders,Airbags, Gear_box_type_idx,Drive_wheels,is_turbo,
+                       Fuel_type_idx,Mileage, Levy,
+                        Prod_year, Age_of_Car,
+                        Leather_interior]])
     prediksi = model.predict(data)[0]
     st.success(f"Perkiraan Harga Mobil Bekas: {prediksi:,.2f}")
