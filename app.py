@@ -337,11 +337,7 @@ st.markdown("Masukkan fitur-fitur mobil untuk memprediksi harga jual menggunakan
 
 # Input numerik
 Levy = st.number_input("Levy", value=0.0)
-Prod_year = st.selectbox("Tahun Produksi", prod_years)
-Engine_volume = st.selectbox("Kapasitas Mesin (L)", Engine_vol_labels)
 Mileage = st.number_input("Jarak Tempuh (km)", value=50000)
-Cylinders = st.selectbox("Jumlah Silinder", cylinders_labels)
-Airbags = st.selectbox("Jumlah Airbags", airbags_labels)
 Age_of_Car = st.number_input("Umur Mobil (tahun)", value=5)
 
 # Dropdown
@@ -407,6 +403,8 @@ else:
     Model = st.number_input("Model (kode numerik)", value=1)
 
 Category = st.selectbox("Kategori ", category_labels)
+category_idx=category_labels.index(Category)
+
 Leather_interior = st.selectbox("Interior Kulit", ["Tidak", "Ya"])
 
 Fuel_type=st.selectbox("Tipe Bahan Bakar",fuel_type_labels)
@@ -421,6 +419,18 @@ Drive_wheels_idx=drive_wheels_labels.index(Drive_wheels)
 Color = st.selectbox("Warna Mobil", color_labels)
 Color_idx = color_labels.index(Color)
 
+Prod_year = st.selectbox("Tahun Produksi", prod_years)
+Prod_year_idx= prod_years.index(Prod_year)
+
+Engine_volume = st.selectbox("Kapasitas Mesin (L)", Engine_vol_labels)
+Engine_volume_idx=Engine_vol_labels.index(Engine_volume)
+
+Cylinders = st.selectbox("Jumlah Silinder", cylinders_labels)
+cylinders_idx=cylinders_labels.index(Cylinders)
+
+Airbags = st.selectbox("Jumlah Airbags", airbags_labels)
+airbags_idx=airbags_labels.index(Airbags)
+
 is_turbo = st.selectbox("Apakah Turbo?", ["Tidak", "Ya"])
 
 # Fitur lainnya
@@ -431,9 +441,9 @@ is_turbo = 1 if is_turbo == "Ya" else 0
 
 # Prediksi
 if st.button("Prediksi Harga"):
-    data = np.array([[Levy, Prod_year, Engine_volume, Mileage, Cylinders,
-                      Airbags, Age_of_Car, Manufacturer_idx, Model, Category,
-                      Leather_interior, Fuel_type, Gear_box_type, Drive_wheels,
-                      Color, is_turbo]])
+    data = np.array([[Levy, Prod_year_idx, Engine_volume_idx, Mileage, cylinders_idx,
+                      airbags_idx, Age_of_Car, Manufacturer_idx, Model, category_idx,
+                      Leather_interior, Fuel_type_idx, Gear_box_type_idx, Drive_wheels_idx,
+                      Color_idx, is_turbo]])
     prediksi = model.predict(data)[0]
     st.success(f"Perkiraan Harga Mobil Bekas: {prediksi:,.2f}")
