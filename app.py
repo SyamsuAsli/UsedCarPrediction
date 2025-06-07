@@ -1,10 +1,11 @@
 import streamlit as st
 import pickle
 import numpy as np
-
+import joblib
+    
 # Load model
 with open('RandomForestRegresso_compressed.pkl', 'rb') as file:
-    model = pickle.load(file)
+    model = joblib.load(file)
 
 # Label unik dari dataset
 manufacturer_labels = ['LEXUS', 'CHEVROLET', 'HONDA', 'FORD', 'HYUNDAI', 'TOYOTA',
