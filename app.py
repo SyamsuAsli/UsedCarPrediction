@@ -4,8 +4,7 @@ import numpy as np
 import joblib
     
 # Load model
-with open('RandomForestRegresso_compressed.pkl', 'rb') as file:
-    model = joblib.load(file)
+model = joblib.load('RandomForestRegresso_compressed.pkl')
 
 # Label unik dari dataset
 manufacturer_labels = ['LEXUS', 'CHEVROLET', 'HONDA', 'FORD', 'HYUNDAI', 'TOYOTA',
