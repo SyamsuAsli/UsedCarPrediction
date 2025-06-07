@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 
 # Load model
-with open('XGBRegressor.pkl', 'rb') as file:
+with open('RandomForestRegresso_compressed.pkl', 'rb') as file:
     model = pickle.load(file)
 
 # Label unik dari dataset
@@ -326,10 +326,6 @@ mitsubishi_models = ['Airtrek', 'Delica', 'Colt Lancer', 'Outlander', 'I', 'Colt
 
 drive_wheels_labels=['4x4', 'Front', 'Rear']
 
-category_labels = ['Jeep', 'Hatchback', 'Sedan', 'Microbus', 'Goods wagon',
-       'Universal', 'Coupe', 'Minivan', 'Cabriolet', 'Pickup',
-       'Limousine']
-
 
 # Judul Aplikasi
 st.title("Prediksi Harga Mobil Bekas")
@@ -402,8 +398,6 @@ elif Manufacturer == "MITSUBISHI":
 else:
     Model = st.number_input("Model (kode numerik)", value=1)
 
-Category = st.selectbox("Kategori ", category_labels)
-category_idx=category_labels.index(Category)
 
 Leather_interior = st.selectbox("Interior Kulit", ["Tidak", "Ya"])
 
@@ -442,7 +436,7 @@ is_turbo = 1 if is_turbo == "Ya" else 0
 # Prediksi
 if st.button("Prediksi Harga"):
     data = np.array([[Levy, Prod_year_idx, Engine_volume_idx, Mileage, cylinders_idx,
-                      airbags_idx, Age_of_Car, Manufacturer_idx, Model, category_idx,
+                      airbags_idx, Age_of_Car, Manufacturer_idx, Model,
                       Leather_interior, Fuel_type_idx, Gear_box_type_idx, Drive_wheels_idx,
                       Color_idx, is_turbo]])
     prediksi = model.predict(data)[0]
