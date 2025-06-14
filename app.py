@@ -23,12 +23,6 @@ color_labels = ['Silver', 'Black', 'White', 'Grey', 'Blue', 'Green', 'Red',
  'Sky blue', 'Orange', 'Yellow', 'Brown', 'Golden', 'Beige',
  'Carnelian red', 'Purple', 'Pink']
 
-prod_years = sorted([2010, 2011, 2006, 2014, 2016, 2013, 2007, 1999, 1997, 2018, 2008,
- 2012, 2017, 2001, 1995, 2009, 2000, 2019, 2015, 2004, 1998, 1990,
- 2005, 2003, 1985, 1996, 2002, 1993, 1992, 1988, 1977, 1989, 1994,
- 2020, 1984, 1986, 1991, 1983, 1953, 1964, 1974, 1987, 1943, 1978,
- 1965, 1976, 1957, 1980, 1939, 1968, 1947, 1982, 1981, 1973])
-
 cylinders_labels = sorted([
     6,  4,  8,  1, 12,  3,  2, 16,  5,  7,  9, 10, 14
 ])
@@ -413,8 +407,6 @@ Drive_wheels_idx=drive_wheels_labels.index(Drive_wheels)
 Color = st.selectbox("Warna Mobil", color_labels)
 Color_idx = color_labels.index(Color)
 
-Prod_year = st.selectbox("Tahun Produksi", prod_years)
-Prod_year_idx= prod_years.index(Prod_year)
 
 Engine_volume = st.selectbox("Kapasitas Mesin (L)", Engine_vol_labels)
 Engine_volume_idx=Engine_vol_labels.index(Engine_volume)
@@ -435,7 +427,7 @@ is_turbo = 1 if is_turbo == "Ya" else 0
 
 # Prediksi
 if st.button("Prediksi Harga"):
-    data = np.array([[Levy, Prod_year_idx, Engine_volume_idx, Mileage, cylinders_idx,
+    data = np.array([[Levy, Engine_volume_idx, Mileage, cylinders_idx,
                       airbags_idx, Age_of_Car, Manufacturer_idx, Model,
                       Leather_interior, Fuel_type_idx, Gear_box_type_idx, Drive_wheels_idx,
                       Color_idx, is_turbo]])
